@@ -393,3 +393,145 @@ Used FireCrawl MCP to map MetaForge site structure and scrape API documentation 
 - **CI/CD**: Implement GitHub Actions and EAS Build automation (Week 3)
 - **Beta Testing**: TestFlight with small Arc Raiders community group (Week 5)
 
+
+## 2025-11-24 - React Native + Expo App Initialization
+
+### What
+Successfully initialized the React Native + Expo mobile app project with complete folder structure, navigation, TypeScript types, API service layer, and dark theme configuration.
+
+### Why
+Following the mobile-first strategy and MetaForge data integration plan, we needed a properly configured React Native + Expo project that could be developed from WSL2 and built for iOS without requiring a Mac.
+
+### How
+**Project Initialization:**
+- Created Expo project with TypeScript template: `npx create-expo-app ArcRaidersCompanion --template blank-typescript`
+- Installed core dependencies: expo-router, @tanstack/react-query, zustand, fuse.js, @react-native-async-storage/async-storage
+
+**Folder Structure Created:**
+```
+app/ArcRaidersCompanion/
+├── app/                    # Expo Router screens (file-based routing)
+│   ├── (tabs)/            # Tab navigation (Search, Maps, Loadouts, Settings)
+│   ├── _layout.tsx        # Root layout with QueryClientProvider
+│   └── item/[id].tsx      # Dynamic item detail screen
+├── components/            # Reusable UI components (common/, game/)
+├── services/              # API integration layer
+│   └── api.ts            # MetaForge API integration with 24h caching
+├── types/                 # TypeScript type definitions
+│   ├── Item.ts           # 500+ item types (weapons, armor, mods, materials)
+│   ├── ARC.ts            # 15+ enemy types with stats and abilities
+│   ├── Map.ts            # 5 game maps with location markers
+│   └── index.ts          # Shared types (Loadout, ApiResponse)
+├── constants/             # App constants and dark theme
+│   ├── Colors.ts         # Sci-fi inspired dark theme
+│   └── index.ts          # Type labels, rarity colors, difficulty levels
+├── hooks/                 # Custom React hooks (empty - ready for use)
+└── utils/                 # Helper functions (empty - ready for use)
+```
+
+**TypeScript Types Implemented:**
+- `Item`: Comprehensive item interface with stats, crafting, rarity, obtainable sources
+- `ARC`: Enemy interface with difficulty, abilities, weaknesses, loot tables
+- `GameMap`: Map interface with locations (resource, spawn, POI, extraction, danger zones)
+- `Loadout`: User-created loadouts with items and slots
+- `ApiResponse<T>`: Generic API response wrapper
+
+**API Service Layer (`services/api.ts`):**
+- `fetchItems()`: Get all items from MetaForge API
+- `fetchARCs()`: Get all ARC enemies
+- `fetchMaps()`: Get all game maps
+- `fetchItemById()`, `fetchARCById()`, `fetchMapById()`: Individual lookups
+- `clearCache()`: Force cache refresh
+- **Caching Strategy**: 24-hour AsyncStorage cache with fallback to expired cache on network errors
+- **Environment Variable**: `EXPO_PUBLIC_API_URL` for backend proxy URL
+
+**Navigation Structure (Expo Router):**
+- Tab navigation with 4 screens: Search, Maps, Loadouts, Settings
+- Dynamic route: `/item/[id]` for item detail pages
+- Dark theme applied globally
+- Emoji icons used (🔍 🗺️ ⚔️ ⚙️) instead of vector icons for simplicity
+
+**Dark Theme Configuration (`constants/Colors.ts`):**
+- **Primary**: Electric blue (#00bfff) - Arc Raiders signature color
+- **Secondary**: Neon purple (#b366ff) - sci-fi accent
+- **Backgrounds**: Dark navy gradient (#0a0e13, #141921, #1e2530)
+- **Rarity Colors**: Common, Uncommon, Rare, Epic, Legendary
+- **Difficulty Colors**: 1-5 difficulty levels with green → red gradient
+- **Text**: White with secondary/tertiary variations
+
+**App Configuration (`app.json`):**
+- App name: "Arc Raiders Companion"
+- Bundle IDs: `com.arcraiders.companion` (iOS & Android)
+- Dark mode: `userInterfaceStyle: "dark"`
+- Expo Router plugin enabled
+- Typed routes experiment enabled
+- Portrait orientation only
+
+**React Query Configuration:**
+- 5-minute stale time
+- 24-hour cache time
+- Automatic refetching on window focus
+- Integrated in root layout
+
+### Impact
+**Development Velocity:**
+- ✅ Project ready for feature development immediately
+- ✅ TypeScript compilation passes with no errors
+- ✅ All dependencies installed and compatible
+- ✅ Navigation structure complete (4 tabs + dynamic routes)
+- ✅ API service ready for MetaForge integration
+
+**Technical Foundation:**
+- Clean architecture: Services layer decoupled from UI
+- Offline-first: 24-hour caching with fallback strategy
+- Type safety: Comprehensive TypeScript types for all game data
+- Performance: React Query caching + AsyncStorage local cache
+- Scalability: Folder structure ready for 100+ components
+
+**Next Development Steps:**
+1. **Backend Proxy**: Set up Node.js/Express or Supabase Edge Functions to call MetaForge API
+2. **Search Screen**: Implement fuzzy search with Fuse.js, ItemCard component, filters
+3. **Item Detail**: Complete item detail screen with stats, crafting, images
+4. **Maps Screen**: Interactive map component with zoomable SVG/images
+5. **Loadout Builder**: Create/save/share loadouts with local storage
+
+**WSL2 Compatibility:**
+- ✅ Project created from WSL2 (Ubuntu)
+- ✅ Can run `npx expo start` from WSL2
+- ✅ QR code works with Expo Go on physical iOS device
+- ✅ No macOS or Xcode required for development
+- ✅ EAS Build will handle iOS builds when ready for production
+
+**Time to MVP:**
+- Estimated 4-6 weeks to feature-complete MVP
+- Week 1: MetaForge partnership + backend proxy
+- Week 2-3: Search, item detail, basic maps
+- Week 4: Loadout builder
+- Week 5: Polish, testing, TestFlight beta
+- Week 6: App Store submission
+
+### Related
+- Directory: `/app/ArcRaidersCompanion`
+- File: `/app/ArcRaidersCompanion/README.md` (comprehensive setup guide)
+- File: `/app/ArcRaidersCompanion/services/api.ts` (MetaForge integration)
+- File: `/app/ArcRaidersCompanion/types/` (TypeScript definitions)
+- Reference: `planning/MOBILE_FIRST_STRATEGY.md` (product strategy)
+- Reference: `planning/METAFORGE_DATA_SOURCE.md` (API integration guide)
+
+### Commands
+```bash
+# Navigate to app
+cd /home/riche/Proj/Arc_Raiders_App/app/ArcRaidersCompanion
+
+# Start development server
+npx expo start
+
+# Type check
+npx tsc --noEmit
+
+# Run on device
+# Scan QR code with Expo Go app on iOS device
+```
+
+---
+
