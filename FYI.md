@@ -214,12 +214,86 @@ CLAUDE.md ensures consistent development practices, documents project-specific c
 
 ---
 
+---
+
+## 2025-11-24 - CRITICAL DISCOVERY: Major Competitive Landscape Identified
+
+### What
+Discovered two comprehensive, actively maintained Arc Raiders companion tools: MetaForge and ArcRaiders.app. Both are web-based desktop tools with 70-80% feature overlap with our original MVP plan.
+
+### Why
+User provided critical resources (https://metaforge.app/arc-raiders and Reddit post about arcraidersapp.com) that fundamentally changed project strategy. Without this discovery, we would have built a redundant tool competing directly with established, well-maintained platforms.
+
+### How
+**MetaForge Analysis:**
+- Professional, comprehensive web tool
+- Features: Item database, interactive maps (5 maps!), skill tree builder, loadout builder, quest database, ARC enemy info, guides, news
+- Actively maintained (last update: Nov 20, 2025 - 3 days ago!)
+- Well-established brand with strong community presence
+
+**ArcRaiders.app Analysis:**
+- Community-driven companion tool
+- Features: Loadout planner with augments, interactive maps, skill builder, item tracker with have/need tracking
+- Recently launched (~1 month ago)
+- User contribution features, shareable builds
+
+**Gap Analysis:**
+- ✅ Both tools cover our original MVP features (F1-F4)
+- ❌ Neither has native mobile app
+- ❌ Neither optimized for mobile/in-game use
+- ❌ Neither has personal stats tracking
+- ❌ Neither has push notifications
+- ❌ Neither has offline-first design
+
+### Impact
+**STRATEGIC PIVOT REQUIRED**
+
+**Original Strategy**: Build comprehensive companion with item database, maps, loadout builder, guides
+**Problem**: 70-80% overlap with existing, mature tools
+**New Strategy**: Build the ONLY native mobile companion app
+
+**Key Decisions:**
+1. **Mobile-First Approach**: Focus exclusively on native iOS app (no web version initially)
+2. **Differentiation**: Speed (< 2s item lookup), offline-first, in-game quick reference
+3. **Target User**: Console/PC players who need phone-based quick reference while gaming
+4. **Unique Features**: Personal stats tracking, push notifications, voice search, iOS widgets
+5. **Data Partnership**: Seek collaboration with MetaForge/ArcRaiders.app for data (with attribution)
+
+**Competitive Advantages:**
+- 10x faster access speed (app vs browser)
+- Seamless in-game use (phone glance vs alt-tab)
+- Full offline mode (vs internet-required web tools)
+- One-handed mobile UX (vs desktop-optimized layouts)
+- Personal data layer (stats, progress, goals)
+
+**Revised Value Proposition**:
+"Arc Raiders Companion - The ONLY mobile app designed for in-game quick reference while playing on console or PC. Fast. Offline. Always in your pocket."
+
+### Related
+- File: `planning/COMPETITIVE_ANALYSIS.md` (comprehensive 70+ line analysis)
+- File: `planning/MOBILE_FIRST_STRATEGY.md` (revised product strategy)
+- File: `planning/PRD_TEMPLATE.md` (needs revision to reflect mobile-first approach)
+- Reddit: https://www.reddit.com/r/ArcRaiders/comments/1l4tdsf/we_just_launched_arcraidersapp_a_companion_tool/
+- Competitors: https://metaforge.app/arc-raiders, https://arcraiders.app/
+
+### Next Steps (URGENT)
+1. **Validate Mobile Demand**: Post in r/ArcRaiders to gauge interest in mobile companion app
+2. **Contact Competitors**: Reach out to MetaForge/ArcRaiders.app for data partnership
+3. **Revise PRD**: Update PRD_TEMPLATE.md with mobile-first feature set
+4. **Tech Stack Confirmation**: React Native + Expo confirmed (enables 4-6 week MVP)
+5. **Rapid Prototyping**: Design mobile mockups focused on speed and in-game use
+6. **4-6 Week Sprint**: Launch before competitors build mobile apps
+
+---
+
 ## Future Improvements
-- **CI/CD**: Implement GitHub Actions for automated testing and deployment (post-tech stack decision)
-- **Tech Stack Finalization**: User decision needed: Native iOS vs React Native + Expo
-- **App Initialization**: Once tech stack chosen, initialize actual app project in `/app` directory
-- **Design System**: Create UI/UX mockups and design system documentation
-- **Data Collection**: Begin Arc Raiders research per research document action items
-- **Testing Framework**: Set up test environment matching chosen tech stack
-- **MCP Expansion**: Add game-specific MCP servers as research progresses
+- **Community Validation**: Post in r/ArcRaiders to validate mobile app demand (URGENT - Week 1)
+- **Partnership Outreach**: Contact MetaForge/ArcRaiders.app teams for collaboration (Week 1)
+- **App Initialization**: Initialize React Native + Expo project (Week 1)
+- **PRD Revision**: Update PRD with mobile-first, differentiated feature set (Week 1)
+- **Design Mockups**: Create mobile-optimized UI designs focusing on speed (Week 1-2)
+- **Data Strategy**: Establish MetaForge data partnership or scraping approach (Week 2)
+- **MVP Development**: 4-6 week sprint to launch before competition (Weeks 2-6)
+- **CI/CD**: Implement GitHub Actions and EAS Build automation (Week 3)
+- **Beta Testing**: TestFlight with small Arc Raiders community group (Week 5)
 
