@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "deny": [
+      {
+        "tool": "Read",
+        "path": ".env"
+      },
+      {
+        "tool": "Read",
+        "path": ".env.*"
+      },
+      {
+        "tool": "Read",
+        "path": "secrets/"
+      },
+      {
+        "tool": "Write",
+        "path": ".env"
+      },
+      {
+        "tool": "Write",
+        "path": ".env.*"
+      },
+      {
+        "tool": "Edit",
+        "path": ".env"
+      },
+      {
+        "tool": "Edit",
+        "path": ".env.*"
+      }
+    ]
+  },
+  "hooks": {
+    "userPromptSubmit": "~/.claude/hooks/user_prompt_submit.py",
+    "preToolUse": "~/.claude/hooks/pre_tool_use.py",
+    "postToolUse": "~/.claude/hooks/post_tool_use.py",
+    "sessionStart": "~/.claude/hooks/session_start.py",
+    "stop": "~/.claude/hooks/stop.py"
+  }
+}

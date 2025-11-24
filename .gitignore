@@ -14,7 +14,11 @@ Thumbs.db
 .idea/
 *.swp
 .cursor/
-.claude/
+
+# Claude Code
+.claude/data/
+.claude/logs/
+# Allow .claude/settings.json to be committed
 
 # Dependency directories
 node_modules/
