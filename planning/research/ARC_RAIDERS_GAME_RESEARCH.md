@@ -1,7 +1,7 @@
 # Arc Raiders - Game Research & Data Sources
 
 **Last Updated**: 2025-11-24
-**Status**: 🟡 Research in Progress
+**Status**: ✅ MAJOR PROGRESS - MetaForge API Discovered!
 
 ---
 
@@ -39,25 +39,36 @@ Arc Raiders is a free-to-play cooperative third-person shooter set in a sci-fi w
 ## Data Sources (To Research)
 
 ### Primary Sources
-- [ ] **Official Website**: Check for lore, character info, weapon details
-- [ ] **Steam Page**: Community discussions, updates, announcements
+- [x] **Official Website**: arcraiders.com (basic info available)
+- [x] **Steam Page**: https://store.steampowered.com/app/1471270/Arc_Raiders/
 - [ ] **Official Social Media**: Twitter/X, Instagram, YouTube for updates
 - [ ] **Press Releases**: Game announcements and feature reveals
 - [ ] **Developer Blogs**: Embark Studios blog/dev diaries
 
-### Community Sources
-- [ ] **Reddit**: r/ArcRaiders or game-specific subreddits
-- [ ] **Discord**: Official or community Discord servers
-- [ ] **Wiki**: Check if Fandom wiki exists (arc-raiders.fandom.com)
-- [ ] **YouTube**: Gameplay videos, guides, content creators
-- [ ] **Twitch**: Streamers playing the game
-- [ ] **Game News Sites**: IGN, GameSpot, PC Gamer articles
+### Community Sources ✅ FULLY DISCOVERED
+- [x] **MetaForge** - https://metaforge.app/arc-raiders **← PRIMARY DATA SOURCE**
+  - ✅ Comprehensive game database (500+ items, 15+ ARCs, 5 maps)
+  - ✅ **PUBLIC API AVAILABLE** (https://metaforge.app/api/arc-raiders)
+  - ✅ Active guides and patch notes (updated Nov 20, 2025)
+  - ✅ Community Discord: https://discord.gg/8UEK9TrQDs
+  - ✅ Professional, maintained platform
+- [x] **ArcRaiders.app** - Community companion tool (loadout planner, maps)
+- [x] **Reddit**: r/ArcRaiders community exists
+- [ ] **Discord**: Join MetaForge Discord for partnership discussion
+- [ ] **YouTube**: Guides available (featured on MetaForge)
+- [ ] **Twitch**: Streamers active
 
-### Technical Sources
-- [ ] **API Documentation**: Check if official API exists (unlikely for new game)
-- [ ] **Data Mining**: Community-created game file extractors
-- [ ] **Unofficial APIs**: Community-built data aggregators
-- [ ] **Packet Sniffing**: Analyze game network traffic (ethical considerations)
+### Technical Sources ✅ API FOUND!
+- [x] **MetaForge API**: https://metaforge.app/api/arc-raiders
+  - ✅ GET /items - All items with filtering & pagination
+  - ✅ GET /arcs - All ARCs with loot data
+  - ✅ GET /quests - All quests with rewards
+  - ✅ GET /traders - Trader inventories
+  - ✅ GET /game-map-data - Map data for all 5 maps
+  - ⚠️ **Requires attribution** (link to metaforge.app/arc-raiders)
+  - ⚠️ **Commercial use requires Discord permission**
+- [x] **Data Mining**: NOT NEEDED (API available!)
+- [x] **Unofficial APIs**: NOT NEEDED (Official MetaForge API sufficient!)
 
 ---
 
@@ -293,6 +304,56 @@ Based on typical extraction/co-op shooter mechanics:
 - Planned research phases
 - Listed action items for Week 1
 
+### 2025-11-24: MAJOR BREAKTHROUGH - MetaForge API Discovery
+**Status**: ✅ PRIMARY DATA SOURCE IDENTIFIED
+
+**Discovery**: MetaForge (metaforge.app/arc-raiders) provides comprehensive Arc Raiders database with **PUBLIC API ACCESS**!
+
+**Key Findings:**
+- **15+ ARC Enemy Types**: Bastion, Bombardier, Fireball, Hornet, Leaper, Matriarch, Pop, Queen, Rocketeer, Sentinel, Shredder, Snitch, Surveyor, Tick, Turret, Wasp
+- **5 Maps**: Dam Battlegrounds, Spaceport, Buried City, Blue Gate, Stella Montis (new in Nov 2025)
+- **500+ Items**: Weapons, mods, crafting materials, loot, medical, explosives
+- **Skill Tree System**: Multi-tier progression with shareable builds
+- **Quest System**: Multiple quest givers, multi-map objectives
+- **Trader System**: NPC vendors with item inventories, Raider Coins currency
+- **Recent Updates**: Active development (Nov 20 & Nov 13, 2025 patches documented)
+
+**API Endpoints Available:**
+- `/api/arc-raiders/items` - All items with filtering/pagination
+- `/api/arc-raiders/arcs` - All ARCs with loot tables
+- `/api/arc-raiders/quests` - Quest database
+- `/api/arc-raiders/traders` - Trader inventories
+- `/api/game-map-data` - Interactive map data
+
+**Legal Requirements:**
+- ✅ Attribution required: Link to metaforge.app/arc-raiders
+- ⚠️ Commercial use: Must request permission via Discord (https://discord.gg/8UEK9TrQDs)
+- ✅ Community-driven data (not official Embark Studios)
+- ✅ Rate limiting may apply (cache data locally)
+
+**Impact on Mobile App:**
+- ✅ No web scraping needed
+- ✅ Structured JSON API (easier integration)
+- ✅ Partnership opportunity with MetaForge
+- ✅ Clear legal path with attribution
+- ✅ Active community for validation
+- ✅ Regular updates (follows game patches)
+
+**Next Actions:**
+1. Contact MetaForge team via Discord for partnership discussion
+2. Request API usage permission for commercial mobile app
+3. Set up backend proxy (don't call API directly from mobile)
+4. Implement local caching strategy (offline-first)
+5. Design attribution screens for app
+
+**Partnership Proposal:**
+- Offer: Official MetaForge mobile app
+- Value: Mobile presence without MetaForge building it
+- Benefits: Traffic to MetaForge, co-marketing, revenue share
+- Ask: API permission, potential data collaboration
+
+See **[METAFORGE_DATA_SOURCE.md](../METAFORGE_DATA_SOURCE.md)** for comprehensive API integration guide.
+
 ---
 
 ## References
@@ -302,11 +363,16 @@ Based on typical extraction/co-op shooter mechanics:
 - [Arc Raiders on Steam](https://store.steampowered.com/app/1471270/Arc_Raiders/)
 - [Embark Studios](https://www.embark-studios.com/)
 
-**Community:**
-- (To be added as discovered)
+**Community & Data Sources:**
+- ✅ [MetaForge Arc Raiders](https://metaforge.app/arc-raiders) - **PRIMARY DATA SOURCE**
+  - Comprehensive game database with PUBLIC API
+  - Discord: https://discord.gg/8UEK9TrQDs
+- ✅ [ArcRaiders.app](https://arcraiders.app/) - Community companion tool
+- [r/ArcRaiders](https://www.reddit.com/r/ArcRaiders/) - Reddit community
 
-**Press:**
-- (To be added as discovered)
+**Press & Guides:**
+- MetaForge Guides (Nov 2025 updates, patch notes, walkthroughs)
+- See MetaForge for active content library
 
 ---
 

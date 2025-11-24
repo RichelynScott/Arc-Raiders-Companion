@@ -286,6 +286,102 @@ User provided critical resources (https://metaforge.app/arc-raiders and Reddit p
 
 ---
 
+## 2025-11-24 - MetaForge API Discovery & Data Integration Strategy
+
+### What
+Discovered that MetaForge provides a comprehensive PUBLIC API for all Arc Raiders game data, eliminating the need for web scraping and providing structured, legal data access.
+
+### Why
+Data access is critical for mobile app functionality. Having a reliable, structured API with clear legal terms enables faster development and a clean partnership path.
+
+### How
+Used FireCrawl MCP to map MetaForge site structure and scrape API documentation page. Discovered:
+
+**MetaForge API** (https://metaforge.app/api/arc-raiders):
+- **Base URL**: `https://metaforge.app/api/arc-raiders`
+- **Endpoints Available**:
+  - `GET /items` - 500+ items with filtering, pagination, component relationships
+  - `GET /arcs` - 15+ ARC enemies with loot tables
+  - `GET /quests` - Quest database with objectives and rewards
+  - `GET /traders` - All trader inventories and prices
+  - `GET /game-map-data` - Interactive map data for all 5 maps
+
+**Game Data Identified:**
+- **15+ ARC Enemy Types**: Bastion, Bombardier, Fireball, Hornet, Leaper, Matriarch, Pop, Queen, Rocketeer, Sentinel, Shredder, Snitch, Surveyor, Tick, Turret, Wasp
+- **5 Maps**: Dam Battlegrounds, Spaceport, Buried City, Blue Gate, Stella Montis
+- **500+ Items**: Weapons (tiers I-IV), mods, crafting materials, medical, explosives, loot
+- **Skill Tree**: Multi-tier progression system with shareable builds
+- **Quest System**: Multiple quest givers, multi-map objectives
+- **Trader System**: NPC vendors, Raider Coins currency, recycle system
+- **Recent Updates**: Nov 20 (1.3.0) and Nov 13 (1.2.0 "North Line") - actively maintained
+
+**Legal Terms:**
+- ✅ **Free Use**: Requires attribution and link to metaforge.app/arc-raiders
+- ⚠️ **Commercial Use**: Must request permission via Discord first (https://discord.gg/8UEK9TrQDs)
+- ✅ **Best Practice**: Cache data locally, avoid calling API directly from mobile clients
+- ⚠️ **Rate Limiting**: Large requests may be throttled
+
+### Impact
+**This is a GAME CHANGER for our mobile app:**
+
+1. **Development Acceleration**:
+   - No web scraping infrastructure needed
+   - Structured JSON API (easy integration)
+   - Saves 2-3 weeks of data collection work
+
+2. **Data Quality**:
+   - Professional, maintained database
+   - Updated within days of game patches
+   - Community-verified accuracy
+   - 500+ items already cataloged
+
+3. **Legal Clarity**:
+   - Clear terms of use (attribution required)
+   - Partnership path via Discord
+   - Potential official "Powered by MetaForge" status
+
+4. **Technical Architecture**:
+   - Backend proxy strategy (Node.js/Express or Supabase Edge Functions)
+   - Mobile app → Our backend → MetaForge API
+   - Local caching for offline-first experience
+   - Weekly background sync for data updates
+
+5. **Partnership Opportunity**:
+   - Offer: Build official MetaForge mobile app
+   - Value: MetaForge gets mobile presence without building it
+   - Benefits: Traffic to MetaForge, co-marketing, optional revenue share
+   - Win-Win: We own mobile, they own data
+
+**Revised Data Strategy:**
+- **Phase 1**: Contact MetaForge team via Discord for partnership
+- **Phase 2**: Set up backend proxy (respect rate limits, cache data)
+- **Phase 3**: Implement local caching in mobile app (AsyncStorage + Fuse.js search)
+- **Phase 4**: Weekly background updates, offline-first design
+
+**Attribution Requirements:**
+- Settings screen: "Data Source: MetaForge" with link
+- About screen: Full attribution text
+- Item detail screens: "Data: MetaForge • Updated: [date]"
+- App Store description: "Powered by MetaForge community data"
+
+### Related
+- File: `planning/METAFORGE_DATA_SOURCE.md` (comprehensive API integration guide)
+- File: `planning/research/ARC_RAIDERS_GAME_RESEARCH.md` (updated with findings)
+- MetaForge API: https://metaforge.app/arc-raiders/api
+- MetaForge Discord: https://discord.gg/8UEK9TrQDs
+- Reddit Discussion: https://www.reddit.com/r/ArcRaiders/comments/1l4tdsf/we_just_launched_arcraidersapp_a_companion_tool/
+
+### Next Steps (THIS WEEK)
+1. ✅ **Document API findings** (DONE - METAFORGE_DATA_SOURCE.md created)
+2. [ ] **Join MetaForge Discord** and introduce mobile app project
+3. [ ] **Request partnership** for official MetaForge mobile app
+4. [ ] **Discuss terms**: API rate limits, attribution, revenue share, co-branding
+5. [ ] **Set up backend proxy** (Node.js or Supabase) for API caching
+6. [ ] **Test API endpoints** and understand data structure
+7. [ ] **Design attribution screens** for mobile app
+
+---
+
 ## Future Improvements
 - **Community Validation**: Post in r/ArcRaiders to validate mobile app demand (URGENT - Week 1)
 - **Partnership Outreach**: Contact MetaForge/ArcRaiders.app teams for collaboration (Week 1)
