@@ -1,0 +1,37 @@
+{
+  "name": "arc-raiders-api-proxy",
+  "version": "1.0.0",
+  "description": "Backend proxy server for MetaForge Arc Raiders API with caching",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "node --test",
+    "lint": "eslint src/**/*.js"
+  },
+  "keywords": [
+    "arc-raiders",
+    "api",
+    "proxy",
+    "cache"
+  ],
+  "author": "AIBC Solutions",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "node-cache": "^5.1.2",
+    "cors": "^2.8.5",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "compression": "^1.7.4",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "eslint": "^8.56.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
