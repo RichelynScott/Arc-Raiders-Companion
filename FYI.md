@@ -17,6 +17,9 @@ This project aims to create a companion application for the game *Arc Raiders*. 
 ## Error Log
 - (No errors yet)
 
+## Development Log
+- **2025-11-24**: Initialized Git repository, created project structure (app, docs, planning), and pushed to GitHub (https://github.com/RichelynScott/Arc-Raiders-Companion).
+
 ## Future Improvements
 - **CI/CD**: Implement GitHub Actions for automated testing and deployment.
 - **Tech Stack Selection**: Finalize the decision between Native iOS (requires Mac) or Cross-platform (React Native/Flutter).
